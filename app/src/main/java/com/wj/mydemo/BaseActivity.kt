@@ -15,12 +15,15 @@ import com.tbruyelle.rxpermissions2.RxPermissions
 
 abstract class BaseActivity : AppCompatActivity() {
     protected var rxPermissions: RxPermissions? = null
+    protected var barView: View? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(setLayoutId())
         ImmersionBar.with(this).init()
         rxPermissions = RxPermissions(this)
+        barView = findViewById(R.id.barView)
+        ImmersionBar.setStatusBarView(this, barView)
         initView()
         initData()
         setEvent()
