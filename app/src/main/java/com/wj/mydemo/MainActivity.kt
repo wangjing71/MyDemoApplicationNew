@@ -15,7 +15,6 @@ class MainActivity : BaseActivity() {
     }
 
     override fun initView() {
-        super.initView()
         Log.i("====","initView")
     }
 
