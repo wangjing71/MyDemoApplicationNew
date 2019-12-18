@@ -20,7 +20,13 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(setLayoutId())
-        ImmersionBar.with(this).init()
+        ImmersionBar
+            .with(this)
+            .navigationBarColorTransform(R.color.blue_primary)
+            //                .navigationBarDarkIcon(true) //导航栏图标是深色，不写默认为亮色
+            //                .fullScreen(true)
+            .navigationBarAlpha(1.0f)  //导航栏透明度，不写默认0.0F
+            .init()
         rxPermissions = RxPermissions(this)
         barView = findViewById(R.id.barView)
         ImmersionBar.setStatusBarView(this, barView)
