@@ -1,12 +1,21 @@
 package com.wj.mydemo
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
+    override fun setLayoutId(): Int {
+        return R.layout.activity_main
+    }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+    override fun initView() {
+
+    }
+
+    override fun initData() {
+
+    }
+
+    override fun setEvent() {
+
     }
 }
