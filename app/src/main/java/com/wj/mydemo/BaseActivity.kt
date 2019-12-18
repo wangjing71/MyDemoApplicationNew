@@ -2,6 +2,7 @@ package com.wj.mydemo
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 
 import com.gyf.immersionbar.ImmersionBar
@@ -13,9 +14,7 @@ import com.tbruyelle.rxpermissions2.RxPermissions
  */
 
 abstract class BaseActivity : AppCompatActivity() {
-
-
-    protected var rxPermissions: RxPermissions
+    protected var rxPermissions: RxPermissions? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
