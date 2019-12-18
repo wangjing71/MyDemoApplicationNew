@@ -6,6 +6,7 @@ import butterknife.BindView
 import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import android.util.Log
 import android.widget.Button
 
 
@@ -18,8 +19,10 @@ class MainActivity : BaseActivity() {
     }
 
     override fun initView() {
-
+        super.initView()
+        Log.i("====","initView")
     }
+
 
     override fun initData() {
 

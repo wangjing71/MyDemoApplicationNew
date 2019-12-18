@@ -37,7 +37,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     protected abstract fun setLayoutId(): Int
 
-    protected abstract fun initView()
+    protected open fun initView() {}
 
     protected abstract fun initData()
 
