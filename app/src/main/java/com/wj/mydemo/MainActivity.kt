@@ -11,8 +11,9 @@ import org.greenrobot.eventbus.ThreadMode
 
 class MainActivity : BaseActivity() {
 
+    @JvmField
     @BindView(R.id.button)
-    lateinit var button: Button
+    var button: Button? = null
 
     override fun setLayoutId(): Int {
         return R.layout.activity_main

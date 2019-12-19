@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import butterknife.ButterKnife
 
 import com.gyf.immersionbar.ImmersionBar
 import com.tbruyelle.rxpermissions2.RxPermissions
@@ -20,6 +21,7 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(setLayoutId())
+        ButterKnife.bind(this)
         ImmersionBar
             .with(this)
             .navigationBarColorTransform(R.color.blue_primary)
