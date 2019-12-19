@@ -1,6 +1,7 @@
 package com.wj.mydemo;
 
 import android.content.Intent;
+import android.mtp.MtpDevice;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
