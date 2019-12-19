@@ -1,5 +1,6 @@
 package com.wj.mydemo
 
+import android.content.Intent
 import butterknife.BindView
 import android.util.Log
 import android.widget.Button
@@ -25,6 +26,9 @@ class MainActivity : BaseActivity() {
     }
 
     override fun setEvent() {
-
+        button!!.setOnClickListener {
+            val intent = Intent(this, SecondActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
