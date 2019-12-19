@@ -5,18 +5,17 @@ import android.util.Log
 import android.widget.Button
 
 
-class MainActivity : BaseActivity() {
-
+class SecondActivity : BaseActivity() {
     @JvmField
     @BindView(R.id.button)
     var button: Button? = null
 
     override fun setLayoutId(): Int {
-        return R.layout.activity_main
+        return R.layout.activity_second
     }
 
     override fun initView() {
-        Log.i("====", "initView")
+        Log.i("====","initView")
     }
 
 
