@@ -9,7 +9,6 @@ import butterknife.ButterKnife
 import com.gyf.immersionbar.ImmersionBar
 import com.tbruyelle.rxpermissions2.RxPermissions
 
-
 /**
  * Created by Administrator on 2018/1/4.
  */
