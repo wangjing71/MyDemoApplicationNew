@@ -23,7 +23,6 @@ class MainActivity : BaseActivity() {
         Log.i("====", "initView")
     }
 
-
     override fun initData() {
         EventBus.getDefault().register(this)
     }
