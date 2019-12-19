@@ -8,16 +8,16 @@ import org.greenrobot.eventbus.EventBus
 
 
 class SecondActivity : BaseActivity() {
-    @JvmField
+
     @BindView(R.id.button)
-    var button: Button? = null
+    lateinit var button: Button
 
     override fun setLayoutId(): Int {
         return R.layout.activity_second
     }
 
     override fun initView() {
-        Log.i("====","initView")
+        Log.i("====", "initView")
     }
 
 
