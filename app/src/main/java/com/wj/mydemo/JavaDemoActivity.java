@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 
 public class JavaDemoActivity extends BaseActivity {
 
@@ -45,5 +48,9 @@ public class JavaDemoActivity extends BaseActivity {
         Intent intent = new Intent(this,SecondActivity.class);
         startActivity(intent);
 
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onGetMessage(MessageWrap message) {
     }
 }

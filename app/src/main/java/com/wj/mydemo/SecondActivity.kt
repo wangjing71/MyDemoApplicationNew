@@ -1,8 +1,10 @@
 package com.wj.mydemo
 
+import android.content.Intent
 import butterknife.BindView
 import android.util.Log
 import android.widget.Button
+import org.greenrobot.eventbus.EventBus
 
 
 class SecondActivity : BaseActivity() {
@@ -24,6 +26,8 @@ class SecondActivity : BaseActivity() {
     }
 
     override fun setEvent() {
-
+        button!!.setOnClickListener {
+            EventBus.getDefault().post(MessageWrap(MessageWrap.TYPE_BAGCLICK, null))
+        }
     }
 }

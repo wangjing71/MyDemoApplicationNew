@@ -4,6 +4,9 @@ import android.content.Intent
 import butterknife.BindView
 import android.util.Log
 import android.widget.Button
+import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 
 
 class MainActivity : BaseActivity() {
@@ -22,7 +25,7 @@ class MainActivity : BaseActivity() {
 
 
     override fun initData() {
-
+        EventBus.getDefault().register(this)
     }
 
     override fun setEvent() {
@@ -30,5 +33,16 @@ class MainActivity : BaseActivity() {
             val intent = Intent(this, SecondActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        EventBus.getDefault().unregister(this);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onGetMessage(message: MessageWrap) {
+        Log.i("====","onGetMessage")
+
     }
 }
