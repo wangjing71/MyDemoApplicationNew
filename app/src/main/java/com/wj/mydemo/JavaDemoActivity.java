@@ -3,6 +3,7 @@ package com.wj.mydemo;
 import android.content.Intent;
 import android.mtp.MtpDevice;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 
@@ -45,12 +46,25 @@ public class JavaDemoActivity extends BaseActivity {
                 doSomeThing();
             }
         });
+
+        button.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()){
+                    case MotionEvent.ACTION_DOWN:
+                        doSomeThing();
+                    case MotionEvent.ACTION_CANCEL:
+                        doSomeThing();
+                        break;
+                }
+                return false;
+            }
+        });
     }
 
     private void doSomeThing() {
         Intent intent = new Intent(this,SecondActivity.class);
         startActivity(intent);
-
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

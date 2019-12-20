@@ -32,6 +32,7 @@ class MainActivity : BaseActivity() {
             val intent = Intent(this, SecondActivity::class.java)
             startActivity(intent)
         }
+
     }
 
     override fun onDestroy() {
