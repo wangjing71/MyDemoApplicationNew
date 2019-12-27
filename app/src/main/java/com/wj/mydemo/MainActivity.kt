@@ -2,8 +2,10 @@ package com.wj.mydemo
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.os.PowerManager
+import android.provider.Settings
 import butterknife.BindView
 import android.util.Log
 import android.widget.Button
@@ -32,12 +34,14 @@ class MainActivity : BaseActivity() {
         EventBus.getDefault().register(this)
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun setEvent() {
         button!!.setOnClickListener {
             if(isIgnoringBatteryOptimizations){
                 Toast.makeText(this, "11", Toast.LENGTH_SHORT).show()
             }else{
                 Toast.makeText(this, "22", Toast.LENGTH_SHORT).show()
+                requestIgnoreBatteryOptimizations()
             }
         }
     }
@@ -66,5 +70,18 @@ class MainActivity : BaseActivity() {
             }
             return isIgnoring
         }
+
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    fun requestIgnoreBatteryOptimizations() {
+        try {
+            val intent = Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS)
+            intent.data = Uri.parse("package:$packageName")
+            startActivity(intent)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
 
 }

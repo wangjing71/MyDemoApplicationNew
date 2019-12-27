@@ -3,9 +3,11 @@ package com.wj.mydemo;
 import android.content.Context;
 import android.content.Intent;
 import android.mtp.MtpDevice;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.PowerManager;
+import android.provider.Settings;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -79,16 +81,15 @@ public class JavaDemoActivity extends BaseActivity {
     }
 
 
-    /*
-    * 判断我们的应用是否在白名单中
-    * */
     @RequiresApi(api = Build.VERSION_CODES.M)
-    private boolean isIgnoringBatteryOptimizations() {
-        boolean isIgnoring = false;
-        PowerManager powerManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
-        if (powerManager != null) {
-            isIgnoring = powerManager.isIgnoringBatteryOptimizations(getPackageName());
+    public void requestIgnoreBatteryOptimizations() {
+        try {
+            Intent intent = new Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS);
+            intent.setData(Uri.parse("package:" + getPackageName()));
+            startActivity(intent);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        return isIgnoring;
     }
+
 }
